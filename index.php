@@ -56,19 +56,20 @@
     }
   </script>
 </head>
+<!-- <body></body> -->
 
 <body>
   <div class="container" id="container">
     <div class="form-container sign-up-container">
       <form name="form" action="sign.php?q=account.php" onSubmit="return validateForm()" method="POST">
-        <h1>Create Account</h1>
-        <span>or use your email for registration</span>
-        <input type="text" name="firstname" placeholder="first name" />
-        <input type="text" name="lastname" placeholder="last name" />
-        <input type="email" name="email" placeholder="Email" />
-        <input type="password" name="password" placeholder="Password" />
-        <input type="password" name="cpassword" placeholder="Conform Password" />
-        <select id="shop" name="shop_id">
+        <h1 style="margin-bottom: 10px;">Create Account</h1>
+
+        <input class="signin" type="text" name="firstname" placeholder="first name" />
+        <input class="signin" type="text" name="lastname" placeholder="last name" />
+        <input class="signin" type="email" name="email" placeholder="Email" />
+        <input class="signin" type="password" name="password" placeholder="Password" />
+        <input class="signin" type="password" name="cpassword" placeholder="Conform Password" />
+        <select class="signin" id="shop" name="shop_id">
           <?php
           include_once 'dbConnection.php';
           $result = mysqli_query($con, "SELECT cod_localidad, des_localidad FROM localidad") or die('Error');
@@ -89,11 +90,11 @@
     <div class="form-container sign-in-container">
       <form action="login.php?q=index.php" method="POST">
         <h1>Sign in</h1>
-        <input type="email" name="email" placeholder="Email" />
-        <input type="password" name="password" placeholder="Password" />
+        <input class="signin" type="email" name="email" placeholder="Email" />
+        <input class="signin" type="password" name="password" placeholder="Password" />
 
         <!-- <a href="#">Forgot your password?</a> -->
-        <button type="submit">Sign In</button>
+        <button class="signin" type="submit">Sign In</button>
       </form>
     </div>
     <div class="overlay-container">

@@ -5,7 +5,11 @@
 }
 
 body {
-    background: #f6f5f7;
+    /* background: #f6f5f7; */
+    background-image:url("../image/back.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,7 +111,7 @@ select {
     overflow: hidden;
     width: 900px;
     max-width: 100%;
-    min-height: 480px;
+    min-height: 520px;
 }
 
 .form-container {
