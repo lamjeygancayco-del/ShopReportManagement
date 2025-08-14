@@ -24,10 +24,7 @@ $password = stripslashes($password);
 $password = addslashes($password);
 $password = md5($password);
 
-
-echo "" . $firstname . "--" . $lastname . "--" . $email . "--" . $password . "--" . $shop_id;
-
-$q3 = mysqli_query($con, "INSERT INTO users(firstname,lastname,email,password,is_admin,shop_id) VALUES  ('$firstname','$lastname' ,'$email' , '$password',0,'$shop_id')") or die('Error Sign');
+$q3 = mysqli_query($con, "INSERT INTO users(firstname,lastname,email,password,is_admin,shop_id) VALUES  ('$firstname','$lastname' ,'$email' , '$password',0,'$shop_id')");
 if ($q3) {
   session_start();
   $_SESSION["email"] = $email;
