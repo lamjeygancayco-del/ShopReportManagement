@@ -59,73 +59,79 @@
 <!-- <body></body> -->
 
 <body>
-  <div class="container" id="container">
-    <div class="form-container sign-up-container">
-      <form name="form" action="sign.php?q=index.php" onSubmit="return validateForm()" method="POST">
-        <h1 style="margin-bottom: 10px;">Crear una cuenta</h1>
+  <div class="signincontainer">
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form class="signin" name="form" action="sign.php?q=index.php" onSubmit="return validateForm()" method="POST">
+          <h1 style="margin-bottom: 10px;">Crear una cuenta</h1>
 
-        <input class="signin" type="text" name="firstname" placeholder="first name" />
-        <input class="signin" type="text" name="lastname" placeholder="last name" />
-        <input class="signin" type="email" name="email" placeholder="Email" />
-        <input class="signin" type="password" name="password" placeholder="Password" />
-        <input class="signin" type="password" name="cpassword" placeholder="Conform Password" />
-        <select class="signin" id="shop" name="shop_id">
-          <?php
-          include_once 'dbConnection.php';
-          $result = mysqli_query($con, "SELECT cod_localidad, des_localidad FROM localidad") or die('Error');
-          $rowcount = mysqli_num_rows($result);
-          while ($row = mysqli_fetch_array($result)) {
-            $shopname = $row['des_localidad'];
-            $shopid = $row['cod_localidad'];
-            echo '<option' . ' value=' . $shopid . '>' . $shopname . '</option>';
-          }
-          ?>
-        </select>
-        <?php if (@$_GET['q7']) {
-          echo '<p style="color:red;font-size:15px;">' . @$_GET['q7'];
-        } ?>
-        <button type="submit">Inscribirse</button>
-      </form>
-    </div>
-    <div class="form-container sign-in-container">
-      <form action="login.php?q=index.php" method="POST">
-        <h1>Iniciar sesión</h1>
-        <input class="signin" type="email" name="email" placeholder="Email" />
-        <input class="signin" type="password" name="password" placeholder="Password" />
+          <input class="signin" type="text" name="firstname" placeholder="first name" />
+          <input class="signin" type="text" name="lastname" placeholder="last name" />
+          <input class="signin" type="email" name="email" placeholder="Email" />
+          <input class="signin" type="password" name="password" placeholder="Password" />
+          <input class="signin" type="password" name="cpassword" placeholder="Conform Password" />
+          <select class="signin" id="shop" name="shop_id">
+            <?php
+            include_once 'dbConnection.php';
+            $result = mysqli_query($con, "SELECT cod_localidad, des_localidad FROM localidad") or die('Error');
+            $rowcount = mysqli_num_rows($result);
+            while ($row = mysqli_fetch_array($result)) {
+              $shopname = $row['des_localidad'];
+              $shopid = $row['cod_localidad'];
+              echo '<option' . ' value=' . $shopid . '>' . $shopname . '</option>';
+            }
+            ?>
+          </select>
+          <?php if (@$_GET['q7']) {
+            echo '<p style="color:red;font-size:15px;">' . @$_GET['q7'];
+          } ?>
+          <button type="submit">Inscribirse</button>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form class="signin" action="login.php?q=index.php" method="POST">
+          <h1>Iniciar sesión</h1>
+          <input class="signin" type="email" name="email" placeholder="Email" />
+          <input class="signin" type="password" name="password" placeholder="Password" />
 
-        <!-- <a href="#">Forgot your password?</a> -->
-        <button class="signin" type="submit">Iniciar sesión</button>
-      </form>
-    </div>
-    <div class="overlay-container">
-      <div class="overlay">
-        <div class="overlay-panel overlay-left">
-          <h1>¡Bienvenido de nuevo!</h1>
-          <p>Para mantenerse conectado con nosotros, inicie sesión con su información personal.</p>
-          <button class="ghost" id="signIn">Sign In</button>
-        </div>
-        <div class="overlay-panel overlay-right">
-          <h1 id="asd">Hola amiga</h1>
-          <p>Introduce tus datos personales y comienza tu viaje con nosotros</p>
-          <button class="ghost" id="signUp">Inscribirse</button>
+          <!-- <a href="#">Forgot your password?</a> -->
+          <button class="signin" type="submit">Iniciar sesión</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>¡Bienvenido de nuevo!</h1>
+            <p>Para mantenerse conectado con nosotros, inicie sesión con su información personal.</p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1 id="asd">Hola amiga</h1>
+            <p>Introduce tus datos personales y comienza tu viaje con nosotros</p>
+            <button class="ghost" id="signUp">Inscribirse</button>
+          </div>
         </div>
       </div>
     </div>
+
+    <footer>
+      <p>
+        Número de teléfono: <b>+x xxxxxxxx</b>
+        <br>
+        Contacto <a target="_blank" href="#">aquí.</a>
+      </p>
+    </footer>
   </div>
 
-  <footer>
-    <p>
-      Número de teléfono: <b>+x xxxxxxxx</b>
-      <br>
-      Contacto <a target="_blank" href="#">aquí.</a>
-    </p>
-  </footer>
 
 </body>
 
 
 </html>
 <script>
+  onchange = "<?php echo htmlentities('calculateDifference(' . $row['codigo']) . ')'; ?>"
+
+
   document.addEventListener('DOMContentLoaded', () => {
     let signUpButton = document.getElementById('signUp');
     let signInButton = document.getElementById('signIn');

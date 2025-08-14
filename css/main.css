@@ -16,7 +16,11 @@ min-height:540px;
 background:url(../image/bg.jpg);
 min-height:535px;
 }
-
+#headercontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 @font-face {
    font-family: 'typo';
     src: url('../fonts/typo.ttf');
@@ -41,16 +45,19 @@ font-family:'typo';
 
 .header
 {
-background:pink;
-height:100px;
+background:#FF416C;
+padding: 10px;
+box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 .logo
 {
 font-family:'typo';
 font-size:35px;
 color:#ffbb33;
-margin:15px;
+margin-left:25px;
+text-align: center;
 }
+
 
 .title1{
 font: 16px "Century Gothic", "Times Roman", sans-serif;
@@ -126,21 +133,22 @@ margin-top:20px;
 }
 .log1
 {
-font: 15px 'Ubuntu', sans-serif;
+font: 20px 'Ubuntu', sans-serif;
 color:orange;
-margin-left:10px;
+margin-left:20px;
 }
 
 .log
 {
 margin:10px;
-margin-right:60px;
+margin-right:10px;
 margin-left:5px;
 color:orange;
 text-decoration:none;
 font-size:20px;
-font-size:15px;
+font-size:20px;
 }
+
 .log:hover
 {
 color:#9acd32;
